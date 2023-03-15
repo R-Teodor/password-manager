@@ -5,11 +5,7 @@ import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), viteCommonjs()],
-  build: {
-    rollupOptions: {
-      external: ['react-is'],
-    },
-  },
+
   server: {
     proxy: {
       '/api/v1/': 'http://localhost:3000/',
