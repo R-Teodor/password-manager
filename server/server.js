@@ -3,9 +3,9 @@ require('express-async-errors')
 require('dotenv').config()
 const cookieParser = require('cookie-parser')
 const connectDB = require('./db/connectDB')
+// const path = require('path')
 // middleware Imports
 const customError = require('./middleware/customError')
-const CustomAPIError = require('./errors/customError')
 const authMiddleware = require('./middleware/authMiddleware')
 
 const app = express()
@@ -16,10 +16,8 @@ app.use(cookieParser())
 const userRouter = require('./routes/userRouter')
 const vaultRouter = require('./routes/vaultRouter')
 
-app.get('/', async (req, res) => {
-  throw new CustomAPIError('Bye Bye')
-  //   res.status(200).send('Welcome route')
-})
+// app.use(express.static(path.resolve(__dirname, '../client/dist')))
+
 app.use('/api/v1/auth', userRouter)
 app.use('/api/v1/vault', authMiddleware, vaultRouter)
 
@@ -28,7 +26,7 @@ app.use(customError)
 const start = async () => {
   try {
     await connectDB()
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
       console.log('server is listening')
     })
   } catch (error) {
