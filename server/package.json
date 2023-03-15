@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "passwordManager server file",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "R-Teodor",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "argon2": "^0.30.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.2",
+    "nodemon": "^2.0.20",
+    "npm": "^9.5.0"
+  }
+}
