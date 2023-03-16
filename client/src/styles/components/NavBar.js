@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
 const Wrapper = styled.header`
   max-width: 1300px;

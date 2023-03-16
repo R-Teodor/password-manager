@@ -1,7 +1,5 @@
 import { useNavigate, Link } from 'react-router-dom'
-
 import { useAppContext } from '../context/appContext'
-import Wrapper from '../styles/components/SearchList'
 
 const websiteParse = (websiteURL) => {
   let url = websiteURL
@@ -19,7 +17,7 @@ const SearchList = () => {
   const { vault } = useAppContext()
 
   return (
-    <Wrapper>
+    <section className='search-list--container'>
       <div className='search-box'>
         <input type='search' placeholder='Filter Items' />
       </div>
@@ -34,25 +32,23 @@ const SearchList = () => {
           />
         )
       })}
-    </Wrapper>
+    </section>
   )
 }
 
 const VaultItem = ({ username, website, password, _id }) => {
   return (
-    <div className='container'>
-      <Link to={`/vaultItems/${_id}`}>
-        <div className='item-icon'>L</div>
-        <div>
-          <h1>{websiteParse(website)} </h1>
-          <p>{username} </p>
-          {/* <p>PASSWORD: {password} </p> */}
-          {/* <p>ID: {_id}</p> */}
-        </div>
+    <Link to={`/vaultItems/${_id}`} className='vault-link'>
+      <div className='item-icon'>L</div>
+      <div>
+        <h1>{websiteParse(website)} </h1>
+        <p>{username} </p>
+        {/* <p>PASSWORD: {password} </p> */}
+        {/* <p>ID: {_id}</p> */}
+      </div>
 
-        {/* <hr /> */}
-      </Link>
-    </div>
+      {/* <hr /> */}
+    </Link>
   )
 }
 export default SearchList

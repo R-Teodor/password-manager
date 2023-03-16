@@ -1,9 +1,9 @@
-import Wrapper from '../styles/components/DashboardLayout'
 import { CiVault, CiSettings } from 'react-icons/ci'
 import { MdOutlinePassword } from 'react-icons/md'
 import { FaBuffer, FaSignOutAlt } from 'react-icons/fa'
 import { Outlet, Link, useLocation } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
+import '../styles/dashboard.css'
 
 const DashboardLayout = () => {
   const location = useLocation()
@@ -25,7 +25,7 @@ const DashboardLayout = () => {
   //   }
   // }, [])
   return (
-    <Wrapper isDisplayed={hidden}>
+    <section className='main-container'>
       <div className='header'>
         <Link to={'/'}>
           <div className='logo-container'>
@@ -37,7 +37,7 @@ const DashboardLayout = () => {
         </Link>
       </div>
 
-      <aside>
+      <aside className={hidden ? 'hidden' : 'block'}>
         <ul>
           <li>
             <Link to={'/vault'}>
@@ -68,10 +68,10 @@ const DashboardLayout = () => {
         </ul>
       </aside>
 
-      <div className='content-window'>
+      <div className={hidden ? 'm-0' : 'm-25'}>
         <Outlet />
       </div>
-    </Wrapper>
+    </section>
   )
 }
 export default DashboardLayout

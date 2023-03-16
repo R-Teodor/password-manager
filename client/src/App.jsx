@@ -1,4 +1,7 @@
 import './App.css'
+import './styles/form.css'
+import './styles/search-list.css'
+import './styles/register.css'
 import Register from './pages/Register'
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import DashboardLayout from './components/DashboardLayout'

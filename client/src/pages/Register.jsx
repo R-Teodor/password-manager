@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Wrapper from '../styles/components/LoginComponent'
+
 import { LOGIN_URL, REGISTER_URL } from '../api/apiURLs'
 import { hashPassword } from '../crypto'
 import { useNavigate } from 'react-router-dom'
@@ -67,7 +67,7 @@ const Register = () => {
   }, [username])
 
   return (
-    <Wrapper>
+    <section className='register-container'>
       {/* {username && <Navigate to={'/vaultItems'} />} */}
 
       <form onSubmit={onSubmit}>
@@ -115,7 +115,7 @@ const Register = () => {
           {register ? 'login' : 'register'}
         </a>
       </form>
-    </Wrapper>
+    </section>
   )
 }
 export default Register

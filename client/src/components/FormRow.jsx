@@ -1,5 +1,3 @@
-import Wrapper from '../styles/components/FormRow'
-
 const FormRow = ({ labelText, type, name, value, handleChange }) => {
   return (
     <div className='form-group'>

@@ -1,8 +1,6 @@
-import FormWrapper from '../styles/components/Form'
-
 const SettingsPage = () => {
   return (
-    <FormWrapper>
+    <section className='form-container'>
       <div className='form-box'>
         <form>
           <h1>Form Styling</h1>
@@ -39,7 +37,7 @@ const SettingsPage = () => {
           <button type='button'>submit</button>
         </form>
       </div>
-    </FormWrapper>
+    </section>
   )
 }
 export default SettingsPage

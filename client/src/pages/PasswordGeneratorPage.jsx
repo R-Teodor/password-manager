@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { useAppContext } from '../context/appContext'
 import { MdContentCopy } from 'react-icons/md'
-import FormWrapper from '../styles/components/Form'
+
 const initialToggleState = {
   numbers: false,
   lower: false,
@@ -48,7 +48,7 @@ const PasswordGeneratorPage = () => {
     // navigator.clipboard.readText().then((clipText) => console.log(clipText))
   }
   return (
-    <FormWrapper>
+    <section className='form-container'>
       <div className='form-box'>
         <form>
           <h1>Gen Secure Password</h1>
@@ -137,7 +137,7 @@ const PasswordGeneratorPage = () => {
           {isLoading && <h1 style={{ color: 'whitesmoke' }}>Loading...</h1>}
         </form>
       </div>
-    </FormWrapper>
+    </section>
   )
 }
 export default PasswordGeneratorPage

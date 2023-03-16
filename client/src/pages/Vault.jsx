@@ -1,11 +1,9 @@
-import Wrapper from '../styles/components/Vault'
 import FormRow from '../components/FormRow'
 import { useState } from 'react'
 import { decryptVault } from '../crypto'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import { v4 as uuidv4 } from 'uuid'
-import FormWrapper from '../styles/components/Form'
 
 const initialValues = {
   username: '',
@@ -47,7 +45,7 @@ const Vault = () => {
   }
 
   return (
-    <FormWrapper>
+    <section className='form-container'>
       <div className='form-box'>
         <form onSubmit={handleSubmit}>
           <h1>Vault Item</h1>
@@ -73,7 +71,7 @@ const Vault = () => {
         </form>
         <Link to={'/vaultItems'}>Go to records</Link>
       </div>
-    </FormWrapper>
+    </section>
   )
 }
 export default Vault
