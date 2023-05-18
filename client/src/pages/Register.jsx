@@ -42,19 +42,6 @@ const Register = () => {
       if (url === REGISTER_URL) {
         registerUser(formData)
       }
-      // navigate('/')
-
-      // const vaultKey = generateVaultKey(
-      //   formData.email,
-      //   data.salt,
-      //   formData.password
-      // )
-      // sessionStorage.setItem('vk', vaultKey)
-      // sessionStorage.setItem('vault', data.vault)
-      // sessionStorage.setItem('username', data.username)
-
-      // localStorage.setItem('vk', vaultKey)
-      // localStorage.setItem('vault', data.vault)
     } catch (error) {
       console.log(error)
     }

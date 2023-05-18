@@ -1,6 +1,8 @@
 .main-container {
-  width: 1000px;
-  min-height: 600px;
+  width: 1200px;
+  /* changed min-height to a stable height */
+  height: 650px;
+  /* overflow: hidden; */
   margin: 0 auto;
   padding: 2rem;
   padding-top: 3rem;
@@ -86,7 +88,12 @@ aside ul li > a {
 
 .m-0 {
   margin-left: 0%;
+  /* added 100% height for the scrollable component */
+  height: 100%;
 }
 .m-25 {
   margin-left: 25%;
+  /* added 100% height for the scrollable component */
+  height: 100%;
+  padding-bottom: 30px;
 }

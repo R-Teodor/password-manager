@@ -4,6 +4,7 @@ import { decryptVault } from '../crypto'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import { v4 as uuidv4 } from 'uuid'
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
 
 const initialValues = {
   username: '',
@@ -67,9 +68,15 @@ const Vault = () => {
             value={formInputs.website}
             handleChange={handleChange}
           />
-          <button type='submit'>Add</button>
+          <button type='submit' className='form__button'>
+            Add
+          </button>
         </form>
-        <Link to={'/vaultItems'}>Go to records</Link>
+        <Link to={'/vaultItems'} className='link__record'>
+          <div className='link__record-container'>
+            <BsFillArrowLeftCircleFill /> Go to records
+          </div>
+        </Link>
       </div>
     </section>
   )

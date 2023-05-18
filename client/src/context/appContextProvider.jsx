@@ -58,7 +58,7 @@ const AppContextProvider = ({ children }) => {
       )
       sessionStorage.setItem('vk', vaultKey)
       sessionStorage.setItem('vault', vault)
-      sessionStorage.setItem('username', username)
+      // sessionStorage.setItem('username', username)
 
       const decryptedVault = decryptVault(vault, vaultKey)
       dispatch({
@@ -86,7 +86,7 @@ const AppContextProvider = ({ children }) => {
       )
       sessionStorage.setItem('vk', vaultKey)
       sessionStorage.setItem('vault', vault)
-      sessionStorage.setItem('username', username)
+      // sessionStorage.setItem('username', username)
 
       const decryptedVault = decryptVault(vault, vaultKey)
       dispatch({
@@ -142,8 +142,6 @@ const AppContextProvider = ({ children }) => {
       // return decrypted
     } catch (error) {
       if (error && error.response && error.response.status === 401) {
-        // sessionStorage.clear()
-        //   return null
         logout()
       }
       console.log(error)
