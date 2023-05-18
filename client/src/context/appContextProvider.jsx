@@ -107,21 +107,10 @@ const AppContextProvider = ({ children }) => {
       const { data } = await axios.get(GET_CURRENT_USER_URL)
       const { username, email } = data.user
       dispatch({ type: GET_CURRENT_USER_SUCCES, payload: { username, email } })
-      console.log(data)
     } catch (error) {
-      console.log(error)
       dispatch({ type: GET_CURRENT_USER_ERROR })
       if (error.response.status === 401) return
-      //   logout()
     }
-    // const vaultKey = generateVaultKey(
-    //     currentUser.email,
-    //     salt,
-    //     currentUser.password
-    //   )
-    //   sessionStorage.setItem('vk', vaultKey)
-    //   sessionStorage.setItem('vault', vault)
-    //   sessionStorage.setItem('username', username)
   }
 
   const handleUpdateVault = async (vault) => {
@@ -141,10 +130,10 @@ const AppContextProvider = ({ children }) => {
       dispatch({ type: UPDATE_VAULT_SUCCESS, payload: { vault: decrypted } })
       // return decrypted
     } catch (error) {
+      dispatch({ type: UPDATE_VAULT_ERROR, payload: error.response.data })
       if (error && error.response && error.response.status === 401) {
         logout()
       }
-      console.log(error)
     }
   }
 
@@ -156,7 +145,7 @@ const AppContextProvider = ({ children }) => {
 
   const getRandomPassword = async (config) => {
     const { data } = await axios.post('/api/v1/auth/gen', config)
-    console.log(data)
+
     return data.password
   }
 
@@ -165,7 +154,6 @@ const AppContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    // handleVault()
     getCurrentUser()
   }, [])
 

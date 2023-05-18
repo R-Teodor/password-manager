@@ -42,9 +42,16 @@ const Register = () => {
       if (url === REGISTER_URL) {
         registerUser(formData)
       }
-    } catch (error) {
-      console.log(error)
+    } catch (error) {}
+  }
+
+  const handleDemoApp = () => {
+    const hashedPassword = hashPassword('secretdemo1234')
+    const formData = {
+      email: 'demo@gmail.com',
+      password: hashedPassword,
     }
+    loginUser(formData)
   }
 
   useEffect(() => {
@@ -99,8 +106,12 @@ const Register = () => {
         </button>
 
         <a onClick={() => setRegister(!register)}>
-          {register ? 'login' : 'register'}
+          {register ? 'Login' : 'Register'}
         </a>
+
+        <button type='button' onClick={handleDemoApp} className='demo__app'>
+          Demo App
+        </button>
       </form>
     </section>
   )

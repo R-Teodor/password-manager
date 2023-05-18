@@ -115,11 +115,11 @@ const reducer = (state, action) => {
   }
   if (action.type === UPDATE_VAULT_ERROR) {
     return {
-      ...initialState,
+      ...state,
       userLoading: false,
       isLoading: false,
       alertType: 'danger',
-      alertText: 'Not good vault',
+      alertText: action.payload.msg || 'Something went bad',
     }
   }
   if (action.type === LOGOUT) {

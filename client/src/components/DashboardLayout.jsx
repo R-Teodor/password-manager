@@ -11,19 +11,6 @@ const DashboardLayout = () => {
   let hidden = location.pathname === '/'
   const { logout } = useAppContext()
 
-  // useEffect(() => {
-  //   const onClickOutside = (e) => {
-  //     //   console.log(e.target)
-  //     if (e.target.closest('#dropdown-menu') !== dropdownRef.current) {
-  //       setDisplayDropdown(false)
-  //     }
-  //   }
-  //   window.addEventListener('click', onClickOutside)
-
-  //   return () => {
-  //     window.removeEventListener('click', onClickOutside)
-  //   }
-  // }, [])
   return (
     <section className='main-container'>
       <div className='header'>

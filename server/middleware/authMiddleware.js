@@ -7,7 +7,8 @@ const authMiddleware = (req, res, next) => {
 
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET)
-    req.user = { userId: payload.userId }
+    const testUser = payload.userId === process.env.TEST_USER_ID
+    req.user = { userId: payload.userId, testUser }
     next()
   } catch (error) {
     throw new UnauthorizedAPIError('Unauthorized')
