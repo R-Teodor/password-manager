@@ -4,6 +4,7 @@ import { LOGIN_URL, REGISTER_URL } from '../api/apiURLs'
 import { hashPassword } from '../crypto'
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
+import '../styles/loader.css'
 
 const initialValues = {
   username: '',
@@ -17,7 +18,8 @@ const Register = () => {
   const [togglePassword, setTogglePassword] = useState(false)
 
   const navigate = useNavigate()
-  const { username, email, loginUser, registerUser } = useAppContext()
+  const { username, email, loginUser, registerUser, isLoading } =
+    useAppContext()
 
   const handleFormChange = (e) => {
     setFormInputs({
@@ -59,6 +61,8 @@ const Register = () => {
       navigate('/')
     }
   }, [username])
+
+  if (isLoading) return <span class='loader'></span>
 
   return (
     <section className='register-container'>
