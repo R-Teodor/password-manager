@@ -1,7 +1,7 @@
 import { CiVault, CiSettings } from 'react-icons/ci'
 import { MdOutlinePassword } from 'react-icons/md'
 import { FaBuffer, FaSignOutAlt } from 'react-icons/fa'
-import { Outlet, Link, useLocation } from 'react-router-dom'
+import { Outlet, NavLink, Link, useLocation } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import '../styles/dashboard.css'
 
@@ -27,30 +27,62 @@ const DashboardLayout = () => {
       <aside className={hidden ? 'hidden' : 'block'}>
         <ul>
           <li>
-            <Link to={'/vault'}>
+            <NavLink
+              to={'/vault'}
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? '#646cff' : '',
+                  fontWeight: isActive ? 'bold' : '',
+                }
+              }}
+            >
               <CiVault className='icon' /> Vault
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={'/gen'}>
+            <NavLink
+              to={'/gen'}
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? '#646cff' : '',
+                  fontWeight: isActive ? 'bold' : '',
+                }
+              }}
+            >
               <MdOutlinePassword className='icon' /> PassGenerator
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={'/settings'}>
+            <NavLink
+              to={'/settings'}
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? '#646cff' : '',
+                  fontWeight: isActive ? 'bold' : '',
+                }
+              }}
+            >
               <CiSettings className='icon' /> Settings
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={'/vaultItems'}>
+            <NavLink
+              to={'/vaultItems'}
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? '#646cff' : '',
+                  fontWeight: isActive ? 'bold' : '',
+                }
+              }}
+            >
               <FaBuffer className='icon' /> Vault Items
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link onClick={logout}>
+            <NavLink onClick={logout}>
               <FaSignOutAlt className='icon' />
               Logout
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </aside>
