@@ -1,11 +1,11 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import { websiteParse, websiteStringLogo } from '../utils/websiteStringParser'
 
 const SearchList = () => {
   const [searchInput, setSearchInput] = useState('')
-  const { vault } = useAppContext()
+  const { vault, logout } = useAppContext()
   const [vaultState, setVaultState] = useState(vault)
 
   const handleChange = (args) => {
@@ -26,6 +26,12 @@ const SearchList = () => {
     () => debounce((text) => handleChange(text), 500),
     []
   )
+  console.log(vault)
+  useEffect(() => {
+    if (!vault || vault.length == 0) {
+      logout()
+    }
+  }, [vault])
 
   return (
     <div className='search-container'>

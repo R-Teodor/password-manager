@@ -11,8 +11,10 @@ const ProtectedLayout = ({ children }) => {
       </div>
     )
   if (!username) {
+    sessionStorage.clear()
     return <Navigate to={'/register'} />
   }
+
   return children
 }
 export default ProtectedLayout
