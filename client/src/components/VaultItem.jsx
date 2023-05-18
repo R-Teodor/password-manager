@@ -65,8 +65,7 @@ const VaultItem = () => {
               <FaRegEdit size={18} />
             </div>
           </button>
-          {/* <h1>VaultItem :{id} </h1>
-      <h1>Username : {vaultItem?.username}</h1> */}
+
           <div className='form-group'>
             <label htmlFor='username'>Username</label>
             <input
@@ -77,7 +76,7 @@ const VaultItem = () => {
               readOnly={isReadOnly}
             />
           </div>
-          {/* <h1>Password : {vaultItem?.password}</h1> */}
+
           <div className='form-group'>
             <label htmlFor='username'>Password</label>
             <input
@@ -88,7 +87,7 @@ const VaultItem = () => {
               readOnly={isReadOnly}
             />
           </div>
-          {/* <h1>Website : {vaultItem?.website}</h1> */}
+
           <div className='form-group'>
             <label htmlFor='username'>Website</label>
             <input
@@ -99,7 +98,7 @@ const VaultItem = () => {
               readOnly={isReadOnly}
             />
           </div>
-          {/* <br /> */}
+
           <button
             onClick={handleFieldUpdate}
             className='form__button'

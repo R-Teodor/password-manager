@@ -62,8 +62,6 @@ const Register = () => {
 
   return (
     <section className='register-container'>
-      {/* {username && <Navigate to={'/vaultItems'} />} */}
-
       <form onSubmit={onSubmit}>
         <h1>{register ? 'Register' : 'Login'}</h1>
         {register && (

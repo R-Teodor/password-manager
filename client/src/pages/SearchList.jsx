@@ -62,11 +62,7 @@ const VaultItem = ({ username, website, password, _id }) => {
       <div>
         <h1>{websiteParse(website)} </h1>
         <p>{username} </p>
-        {/* <p>PASSWORD: {password} </p> */}
-        {/* <p>ID: {_id}</p> */}
       </div>
-
-      {/* <hr /> */}
     </Link>
   )
 }

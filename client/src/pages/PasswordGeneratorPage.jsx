@@ -47,7 +47,6 @@ const PasswordGeneratorPage = () => {
       },
       () => setCopyError(true)
     )
-    // navigator.clipboard.readText().then((clipText) => console.log(clipText))
   }
   return (
     <section className='form-container'>
@@ -73,13 +72,7 @@ const PasswordGeneratorPage = () => {
               </button>
             </div>
           </div>
-          {/* <button
-            type='button'
-            onClick={handleClipboard}
-            disabled={pass ? false : true}
-          >
-            Copy
-          </button> */}
+
           {copySucces && <div>Copied!</div>}
           {copyError && <div>Failed!</div>}
           <div className='range-input--container'>
@@ -144,7 +137,6 @@ const PasswordGeneratorPage = () => {
 const ToggleSwitch = ({ label, callback, status }) => {
   return (
     <div className='container'>
-      {/* {label}{' '} */}
       <div className='toggle-switch'>
         <input
           type='checkbox'
