@@ -21,6 +21,10 @@ app.use(express.static(path.resolve(__dirname, '../client/dist')))
 app.use('/api/v1/auth', userRouter)
 app.use('/api/v1/vault', authMiddleware, vaultRouter)
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'))
+})
+
 app.use(customError)
 
 const PORT = process.env.PORT || 3000
