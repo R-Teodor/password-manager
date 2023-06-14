@@ -142,6 +142,7 @@ const AppContextProvider = ({ children }) => {
       sessionStorage.setItem('vault', data.vault)
       const decrypted = decryptVault(data.vault, vk)
       dispatch({ type: UPDATE_VAULT_SUCCESS, payload: { vault: decrypted } })
+      clearAlert()
       // return decrypted
     } catch (error) {
       dispatch({ type: UPDATE_VAULT_ERROR, payload: error.response.data })

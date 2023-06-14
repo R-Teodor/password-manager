@@ -7,11 +7,15 @@ const path = require('path')
 // middleware Imports
 const customError = require('./middleware/customError')
 const authMiddleware = require('./middleware/authMiddleware')
+const helmet = require('helmet')
+const mongoSanitize = require('express-mongo-sanitize')
 
 const app = express()
 // middleware
 app.use(express.json())
 app.use(cookieParser())
+app.use(helmet())
+app.use(mongoSanitize())
 // Routers
 const userRouter = require('./routes/userRouter')
 const vaultRouter = require('./routes/vaultRouter')

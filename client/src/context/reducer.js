@@ -130,6 +130,7 @@ const reducer = (state, action) => {
       isLoading: false,
       alertType: 'success',
       alertText: 'Success !',
+      showAlert: true,
       vault: action.payload.vault,
     }
   }

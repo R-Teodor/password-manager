@@ -1,8 +1,9 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import { useEffect, useState } from 'react'
 import { websiteParse } from '../utils/websiteStringParser'
 import { FaRegEdit } from 'react-icons/fa'
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
 
 const VaultItem = () => {
   const [isReadOnly, setIsReadOnly] = useState(true)
@@ -118,6 +119,11 @@ const VaultItem = () => {
 
           {/* {isLoading && <div>Loading...</div>} */}
         </form>
+        <Link to={'/vaultItems'} className='link__record'>
+          <div className='link__record-container'>
+            <BsFillArrowLeftCircleFill /> Go to records
+          </div>
+        </Link>
       </div>
     </section>
   )

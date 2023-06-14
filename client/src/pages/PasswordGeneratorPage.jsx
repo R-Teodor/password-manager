@@ -25,9 +25,9 @@ const PasswordGeneratorPage = () => {
       length: passRange,
       config: toggleSwitch,
     }
-    // console.log(config)
+
     const pass = await getRandomPassword(config)
-    // console.log('Password in component', pass)
+
     setPass(pass)
   }
   const handleToggleSwitch = (e) => {

@@ -26,7 +26,7 @@ const SearchList = () => {
     () => debounce((text) => handleChange(text), 500),
     []
   )
-  console.log(vault)
+
   useEffect(() => {
     if (!vault || vault.length == 0) {
       logout()

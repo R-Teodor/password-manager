@@ -7,7 +7,7 @@ const GridMenuComponent = () => {
       <UtilityCard
         name={'Vault'}
         icon={'/box-package-shipping-svgrepo-com.svg'}
-        description={'Setup the vault'}
+        description={'Setup vault items'}
         location={'/vault'}
       />
       <UtilityCard
