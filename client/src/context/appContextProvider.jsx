@@ -3,6 +3,8 @@ import { useReducer, useEffect } from 'react'
 import reducer from './reducer'
 import axios from 'axios'
 import {
+  DISPLAY_ALERT,
+  CLEAR_ALERT,
   LOGIN_USER_BEGIN,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
@@ -45,6 +47,17 @@ const initialState = {
 const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  const displayAlert = () => {
+    dispatch({ type: DISPLAY_ALERT })
+    clearAlert()
+  }
+
+  const clearAlert = () => {
+    setTimeout(() => {
+      dispatch({ type: CLEAR_ALERT })
+    }, 3000)
+  }
+
   const loginUser = async (currentUser) => {
     dispatch({ type: LOGIN_USER_BEGIN })
     try {
@@ -65,6 +78,7 @@ const AppContextProvider = ({ children }) => {
         type: LOGIN_USER_SUCCESS,
         payload: { username, vault: decryptedVault, salt, vaultKey },
       })
+      clearAlert()
     } catch (error) {
       dispatch({
         type: LOGIN_USER_ERROR,
@@ -131,6 +145,7 @@ const AppContextProvider = ({ children }) => {
       // return decrypted
     } catch (error) {
       dispatch({ type: UPDATE_VAULT_ERROR, payload: error.response.data })
+      clearAlert()
       if (error && error.response && error.response.status === 401) {
         logout()
       }
@@ -167,6 +182,8 @@ const AppContextProvider = ({ children }) => {
         handleUpdateVault,
         getRandomPassword,
         logout,
+        displayAlert,
+        clearAlert,
       }}
     >
       {children}

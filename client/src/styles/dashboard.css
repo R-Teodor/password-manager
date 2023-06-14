@@ -98,3 +98,26 @@ aside ul li > a {
   height: 100%;
   padding-bottom: 30px;
 }
+
+.alert {
+  position: fixed;
+  right: 48px;
+  bottom: 48px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.danger {
+  background-color: #fee;
+  border: 1px solid #edd;
+  color: #a66;
+}
+.success {
+  background-color: #efe;
+  border: 1px solid #ded;
+  color: #9a9;
+}

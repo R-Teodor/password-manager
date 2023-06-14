@@ -20,5 +20,8 @@ export const DELETE_VAULT_ITEM_ERROR = 'DELETE_VAULT_ITEM_ERROR'
 
 export const LOGOUT = 'LOGOUT'
 
+export const DISPLAY_ALERT = 'DISPLAY_ALERT'
+export const CLEAR_ALERT = 'CLEAR_ALERT'
+
 // TESTING CONSTANT
 export const TEST = 'TEST'

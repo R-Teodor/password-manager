@@ -40,7 +40,7 @@ const VaultItem = () => {
     updatedVault[itemIndex] = updatedItem
 
     handleUpdateVault(updatedVault)
-    setTimeout(() => navigate('/vaultItems'), 2000)
+    // setTimeout(() => navigate('/vaultItems'), 2000)
   }
 
   useEffect(() => {
@@ -99,17 +99,24 @@ const VaultItem = () => {
             />
           </div>
 
-          <button
-            onClick={handleFieldUpdate}
-            className='form__button'
-            type='button'
-          >
-            Save Changes
-          </button>
-          <button onClick={handleDelete} className='form__button' type='button'>
-            Remove Record
-          </button>
-          {isLoading && <div>Loading...</div>}
+          <div className='form__button-group'>
+            <button
+              onClick={handleFieldUpdate}
+              className='form__button-save'
+              type='button'
+            >
+              Save Changes
+            </button>
+            <button
+              onClick={handleDelete}
+              className='form__button-remove'
+              type='button'
+            >
+              Remove Record
+            </button>
+          </div>
+
+          {/* {isLoading && <div>Loading...</div>} */}
         </form>
       </div>
     </section>

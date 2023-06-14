@@ -1,6 +1,8 @@
 import { CiVault, CiSettings } from 'react-icons/ci'
 import { MdOutlinePassword } from 'react-icons/md'
 import { FaBuffer, FaSignOutAlt } from 'react-icons/fa'
+import { BiError } from 'react-icons/bi'
+import { GrValidate } from 'react-icons/gr'
 import { Outlet, NavLink, Link, useLocation } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import '../styles/dashboard.css'
@@ -9,7 +11,7 @@ const DashboardLayout = () => {
   const location = useLocation()
 
   let hidden = location.pathname === '/'
-  const { logout } = useAppContext()
+  const { logout, showAlert, alertType, alertText } = useAppContext()
 
   return (
     <section className='main-container'>
@@ -90,6 +92,17 @@ const DashboardLayout = () => {
       <div className={hidden ? 'm-0' : 'm-25'}>
         <Outlet />
       </div>
+
+      {showAlert && (
+        <div className={`alert ${alertType}`}>
+          {alertType == 'danger' ? (
+            <BiError size={24} />
+          ) : (
+            <GrValidate size={24} />
+          )}
+          <div>{alertText}</div>
+        </div>
+      )}
     </section>
   )
 }
